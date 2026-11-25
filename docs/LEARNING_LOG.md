@@ -47,3 +47,14 @@ Java can't do that alone. It needs a driver: a translator library between Java a
 JUnit is the testing library, used for Sprint 2's rule tests.
 A dependency is a library your project depends on. You list it in the pom, and Maven downloads it.
 Layer: none yet. This is toolbox setup.
+
+## s106
+
+Step 7: Java connects to MySQL (db.properties + DBConnection)
+
+What and why
+
+db.properties is the address card for the storeroom: where it is, which door, and the key (user and password). It's kept out of Git.
+DBConnection is the storeroom key. Every DAO (clerk) asks it for a connection before running SQL.
+Layer: util (helper code shared by all DAOs).
+Host and port are separate settings on purpose: in Sprint 3 the student's Server IP box just replaces db.host.

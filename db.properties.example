@@ -1,0 +1,6 @@
+# Copy to src/main/resources/db.properties and fill in your values
+db.host=localhost
+db.port=3306
+db.name=quizapp
+db.user=root
+db.password=CHANGE_ME
