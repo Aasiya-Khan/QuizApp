@@ -1,0 +1,13 @@
+# Maven build output (rebuilt every time)
+target/
+
+# IntelliJ settings (personal to your machine)
+.idea/
+*.iml
+
+# Secrets: NEVER commit
+db.properties
+config.properties
+
+# Mac system files
+.DS_Store
