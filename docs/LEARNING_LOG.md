@@ -58,3 +58,25 @@ db.properties is the address card for the storeroom: where it is, which door, an
 DBConnection is the storeroom key. Every DAO (clerk) asks it for a connection before running SQL.
 Layer: util (helper code shared by all DAOs).
 Host and port are separate settings on purpose: in Sprint 3 the student's Server IP box just replaces db.host.
+
+## s107
+
+Log entry: what db.properties is, why it's git-ignored, and what getConnection() returns.
+Properties is Java's built-in reader for key=value files.
+getResourceAsStream("/db.properties") opens the file from the resources folder. It returns null if the file is missing, so we throw a clear error instead of a confusing one later.
+try ( … ) is called try-with-resources: Java closes the file automatically when it's finished, even if an error happens.
+RuntimeException means "stop the app with this message".
+url builds the address, e.g. jdbc:mysql://localhost:3306/quizapp. jdbc:mysql:// means "use the MySQL driver".
+DriverManager.getConnection(url, user, password) asks the driver (from Step 6) to open the door. It gives back a Connection, an open line to MySQL.
+static means you can call DBConnection.getConnection() without creating a DBConnection object first.
+throws SQLException means "this can fail (wrong password, MySQL off), and whoever calls me must handle it".
+
+db.properties is the address card for the storeroom: where it is, which door, and the key (user and password). It's kept out of Git.
+DBConnection is the storeroom key. Every DAO (clerk) asks it for a connection before running SQL.
+Layer: util (helper code shared by all DAOs).
+Host and port are separate settings on purpose: in Sprint 3 the student's Server IP box just replaces db.host.
+
+## Spike · LAN feasibility test (26 Nov)
+- **Did:** served a file from my Mac over my phone hotspot (mobile data off); opened it on my phone.
+- **Why:** prove devices can talk without internet before building LAN mode.
+- **Learned:** LAN ≠ internet; same network required; Mac firewall blocked Python until allowed.
